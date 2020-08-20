@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Missile
 {
-    abstract class Fire
+    class Cruise : Misslebase
     {
-        string name;
+        public Cruise() : base(20) //Constructor
+        {
+
+        }
+
     }
 }

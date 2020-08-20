@@ -1,39 +1,46 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Text;
 
 namespace Missile
 {
     class Misslelist
     {
-        List<string> allthemissle = new List<string> ();
-        public void Addtolist(string nameofmissle)
+        List<Misslebase> allthemissle = new List<Misslebase> ();
+        public void Addtolist(Misslebase nameofmissle)
         {
             allthemissle.Add(nameofmissle);
             int countoflist = allthemissle.Count;
-            Console.WriteLine(allthemissle + "misseles in the list");
+            Console.WriteLine(countoflist + "misseles in the list");
+            Console.WriteLine("List of missles:" + allthemissle);
         }
 
-      
-        /*
-        Queue _missleQueue;
-
-        public Misslequeue(Queue missleQueue)  //constructor
+        public void Removefromlist(Misslebase nameofmissle)
         {
-            _missleQueue = missleQueue;
+            if(הקלט מספר)
+            {
+                allthemissle.Remove(nameofmissle);
+            }
+            allthemissle.Remove(nameofmissle);
+            int countoflist = allthemissle.Count;
+            Console.WriteLine(countoflist + "misseles in the list");
+            Console.WriteLine("List of missles:" + allthemissle);
         }
 
-        public void Add(Fire missle) //add to the queue
+        public void ToLaunch(bool percentlaunch)
         {
-            
-            _missleQueue.Enqueue(missle);
+            int counter = 0;
+            if (percentlaunch)
+            {
+                Console.WriteLine("Launch");
+                counter += 1;
+                Console.WriteLine(counter + "Launches");
+            }
+            else
+                Console.WriteLine("The Launch failed");
         }
-
-        public void Remove(Fire missle) //add to the queue
-        {
-
-            _missleQueue.Dequeue(missle);
-        }*/
+        
     }
 }

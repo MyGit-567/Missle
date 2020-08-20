@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Missile
 {
-    class Statistic : Iseccess //calculate the statistics(for all miseles)
+    public class Statistic : Iseccess //calculate the statistics(for all miseles)
     {
         int _sucessRate;
 
