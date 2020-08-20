@@ -5,12 +5,10 @@ using System.Text;
 namespace Missile
 {
     class Torpedo : Misslebase
-    {
-        public Torpedo(int sucessRate) : base(sucessRate) //Constructor
+    {       
+        public Torpedo(Statistic statistic) : base(statistic) //Constructor
         {
-           
+          
         }
-
-
     }
 }

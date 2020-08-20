@@ -6,17 +6,17 @@ namespace Missile
 {
     public abstract class Misslebase
     {
-        string name;
-        public Statistic statistic;
-        public Misslebase(int sucessRate) //Constructor
+        public string name;
+        public Statistic _statistic;
+        public Misslebase(Statistic statistic) //Constructor
         {
-            statistic = new Statistic(sucessRate);
+            _statistic = statistic;
         }
 
-        
+
         public bool Misslelaunch() //check the launch percent 
         {
-            bool percentlaunch = statistic.calculateRate();                     
+            bool percentlaunch = _statistic.calculateRate();                     
                 return percentlaunch; 
         }
 

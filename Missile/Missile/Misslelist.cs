@@ -2,32 +2,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Linq;
 using System.Text;
 
 namespace Missile
 {
     class Misslelist
     {
-        List<Misslebase> allthemissle = new List<Misslebase> ();
+        Dictionary<string, List<Misslebase>> allMissles;
+
+
         public void Addtolist(Misslebase nameofmissle)
         {
-            allthemissle.Add(nameofmissle);
-            int countoflist = allthemissle.Count;
-            Console.WriteLine(countoflist + "misseles in the list");
-            Console.WriteLine("List of missles:" + allthemissle);
+            if (allMissles.ContainsKey(nameofmissle.name))
+            {
+                allMissles[nameofmissle.name].Add(nameofmissle);
+            }
+            else
+            {
+                List<Misslebase> onemissle = new List<Misslebase>();
+                onemissle.Add(nameofmissle);
+
+                allMissles.Add(nameofmissle.name, onemissle);
+            }
+
+
         }
 
-        public void Removefromlist(Misslebase nameofmissle)
+        public void FireMissles(string name, int number)
         {
-            if(הקלט מספר)
+            List<Misslebase> myMissleList = allMissles[name];
+            int counter = 0;
+            if (name == "TotalWar")
             {
-                allthemissle.Remove(nameofmissle);
+                foreach (KeyValuePair<string, List<Misslebase>> entry in allMissles)
+                {
+                    foreach (Misslebase missle in entry.Value)
+                    {
+                        bool check2 = missle.Misslelaunch();
+                        if (check2)
+                        {
+                            ToLaunch(check2);
+                            counter += 1;
+                            myMissleList.Remove(missle);
+                        }
+
+                    }
+
+
+                }
+
             }
-            allthemissle.Remove(nameofmissle);
-            int countoflist = allthemissle.Count;
-            Console.WriteLine(countoflist + "misseles in the list");
-            Console.WriteLine("List of missles:" + allthemissle);
+            else
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    bool check = myMissleList[i].Misslelaunch();
+                    if (check)
+                    {
+                        ToLaunch(check);
+                        counter += 1;
+                        myMissleList.Remove(myMissleList[i]);
+                    }
+
+                }
+            }
         }
+    
 
         public void ToLaunch(bool percentlaunch)
         {

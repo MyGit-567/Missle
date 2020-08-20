@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Menu;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Missile
 {
@@ -7,13 +9,27 @@ namespace Missile
     {
         static void Main(string[] args)
         {
-            Torpedo torpedo = new Torpedo();
-            bool percentofsratistic = torpedo.statistic.calculateRate();
-            if(percentofsratistic)
-
             
-            Ballistic ballistic = new Ballistic();           
-            //  Queue missle = new Queue();
+            Statistic statistic = new Statistic(100);
+            Torpedo torpedo = new Torpedo(statistic);
+            torpedo.Misslelaunch();
+
+
+            //  Create a dictionary
+            Misslelist missleList = new Misslelist();
+            Iaction becktomenu = new Becktomenu();
+            Iaction addNewMissle = new AddNewMissleAction(missleList);
+
+            var actionDictionary = new Dictionary<int, Iaction>
+            {
+                {1 , addNewMissle },
+                {2, becktomenu }
+            };
+
+            var numericMenu = new Numericalmenu(actionDictionary);
+
+            var freemenu = new Freemenu(secondDictionary);
+            numericMenu.Print();
 
         }
     }

@@ -6,7 +6,7 @@ namespace Missile
 {
     class Ballistic : Misslebase
     {
-        public Ballistic() : base(50) //Constructor
+        public Ballistic(Statistic statistic) : base(statistic) //Constructor
         {
 
         }
