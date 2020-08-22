@@ -5,11 +5,20 @@ using System.Text;
 
 namespace Missile
 {
-    class Add_Outoffstock : Iaction
+    class Add_Outoffstock : IPrint
     {
-        public void Action()
+        Misslelist misslelist3;
+
+        public Add_Outoffstock(Misslelist misslelist3)
         {
-           
+            this.misslelist3 = misslelist3;
+        }
+
+        public void Print()
+        {
+            Statistic statistic3 = new Statistic(100);
+            Misslebase newmissle3 = new Torpedo(statistic3);
+            misslelist3.printstock;
 
         }
 
@@ -17,5 +26,7 @@ namespace Missile
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

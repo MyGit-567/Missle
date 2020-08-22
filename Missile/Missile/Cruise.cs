@@ -6,7 +6,7 @@ namespace Missile
 {
     class Cruise : Misslebase
     {
-        public Cruise() : base(20) //Constructor
+        public Cruise(Statistic statistic) : base(statistic) //Constructor
         {
 
         }

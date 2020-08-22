@@ -7,6 +7,7 @@ namespace Missile
     public abstract class Misslebase
     {
         public string name;
+        public int maxdistance;
         public Statistic _statistic;
         public Misslebase(Statistic statistic) //Constructor
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Menu;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
@@ -27,6 +28,11 @@ namespace Missile
             }
 
 
+        }
+
+        internal void Exit(Misslebase newmissle5)
+        {
+            throw new NotImplementedException();
         }
 
         public void FireMissles(string name, int number)
@@ -68,7 +74,34 @@ namespace Missile
                 }
             }
         }
-    
+
+        public void Removefromlist(int missle)
+        {
+            foreach (KeyValuePair<string, List<Misslebase>> entry in allMissles)
+            {
+                foreach (Misslebase missles in entry.Value)
+                {
+                                                                                
+                           entry.Value.RemoveAt(missle);
+                   
+                }
+
+
+            }
+
+
+        }
+
+        public void printstock()
+        {
+            foreach (KeyValuePair<string, List<Misslebase>> dictionaryEntry in allMissles)
+            {
+                Console.WriteLine(dictionaryEntry.Key);
+                Console.WriteLine(dictionaryEntry.Value);
+            }
+        }
+
+
 
         public void ToLaunch(bool percentlaunch)
         {
